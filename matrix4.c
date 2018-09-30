@@ -504,3 +504,53 @@ inline void glmc_matrix4f_ortho_proj(matrix4f dest, float src_left, float src_ri
 	dest[3][2] = 1.0f; 
 	dest[3][3] = 1.0f; 
 }
+
+inline void glmc_matrix4f_default_normalize(matrix4f dest) { 
+	for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+			scanf("%f",&dest[i][j]);
+		}
+	}
+	#ifdef NORMALISE  
+		glmc_matrix4f_normlize_dest(dest); 
+	#endif  
+} 
+
+ 
+inline void glmc_convert_4f_to_1D(1D_to_4f dest, matrix4f src) { 
+	dest[0] = src[0][0]; 
+	dest[1] = src[1][0]; 
+	dest[2] = src[2][0]; 
+	dest[3] = src[3][0]; 
+	dest[4] = src[0][1]; 
+	dest[5] = src[1][1]; 
+	dest[6] = src[2][1]; 
+	dest[7] = src[3][1]; 
+	dest[8] = src[0][2]; 
+	dest[9] = src[1][2]; 
+	dest[10] = src[2][2]; 
+	dest[11] = src[3][2]; 
+	dest[12] = src[0][3]; 
+	dest[13] = src[1][3]; 
+	dest[14] = src[2][3]; 
+	dest[15] = src[3][3]; 
+} 
+
+inline void glmc_convert_1D_to_4f(matrix4f dest, 1D_to_4f src) { 
+	dest[0][0] = src[0]; 
+	dest[1][0] = src[1]; 
+	dest[2][0] = src[2]; 
+	dest[3][0] = src[3]; 
+	dest[0][1] = src[4]; 
+	dest[1][1] = src[5]; 
+	dest[2][1] = src[6]; 
+ 	dest[3][1] = src[7]; 
+	dest[0][2] = src[8]; 
+	dest[1][2] = src[9]; 
+	dest[2][2] = src[10]; 
+	dest[3][2] = src[11]; 
+	dest[0][3] = src[12]; 
+	dest[1][3] = src[13]; 
+	dest[2][3] = src[14]; 
+	dest[3][3] = src[15];
+} 

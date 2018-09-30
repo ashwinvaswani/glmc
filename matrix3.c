@@ -302,3 +302,37 @@ inline void glmc_matrix3f_msub(matrix3f dest, matrix3f src_a, matrix3f src_b){
 	dest[2][1] = dest[2][1] - (src_a[0][1]*src_b[2][0] + src_a[1][1]*src_b[2][1] + src_a[2][1]*src_b[2][2]);
 	dest[2][2] = dest[2][2] - (src_a[0][2]*src_b[2][0] + src_a[1][2]*src_b[2][1] + src_a[2][2]*src_b[2][2]);
 }
+
+inline void glmc_matrix3f_default_normalize(matrix3f dest) { 
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			scanf("%f",&dest[i][j]);
+		}
+	}
+	#ifdef NORMALISE  
+		glmc_matrix3f_normlize_dest(dest); 
+	#endif 
+
+inline void glmc_convert_3f_to_1D(1D_to_3f dest, matrix3f src) { 
+	dest[0] = src[0][0]; 
+	dest[1] = src[1][0]; 
+	dest[2] = src[2][0]; 
+	dest[3] = src[0][1]; 
+	dest[4] = src[1][1]; 
+	dest[5] = src[2][1]; 
+	dest[6] = src[0][2]; 
+	dest[7] = src[1][2]; 
+	dest[8] = src[2][2]; 
+} 
+
+inline void glmc_convert_1D_to_3f(matrix3f dest, 1D_to_3f src) { 
+	dest[0][0] = src[0]; 
+	dest[1][0] = src[1]; 
+	dest[2][0] = src[2]; 
+	dest[0][1] = src[3]; 
+	dest[1][1] = src[4]; 
+	dest[2][1] = src[5]; 
+	dest[0][2] = src[6]; 
+	dest[1][2] = src[7]; 
+	dest[2][2] = src[8]; 
+} 

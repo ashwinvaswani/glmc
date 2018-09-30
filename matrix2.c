@@ -184,3 +184,28 @@ inline void glmc_matrix2f_msub(matrix2f dest, matrix2f src_a, matrix2f src_b){
 	dest[1][0] = dest[1][0] - (src_a[0][0]*src_b[1][0] + src_a[1][0]*src_b[1][1]);
 	dest[1][1] = dest[1][1] - (src_a[0][1]*src_b[1][0] + src_a[1][1]*src_b[1][1]);
 }
+
+inline void glmc_matrix2f_default_normalize(matrix2f dest) { 
+	for(int i=0;i<2;i++){
+		for(int j=0;j<2;j++){
+			scanf("%f",&dest[i][j]);
+		}
+	}
+	#ifdef NORMALISE  
+		glmc_matrix2f_normlize_dest(dest); 
+	#endif 
+} 
+
+inline void glmc_convert_2f_to_1D(1D_to_2f dest, matrix2f src) { 
+	dest[0] = src[0][0]; 
+	dest[1] = src[1][0]; 
+	dest[2] = src[0][1]; 
+	dest[3] = src[1][1]; 
+} 
+
+inline void glmc_convert_1D_to_2f(matrix2f dest, 1D_to_2f src) { 
+	dest[0][0] = src[0]; 
+	dest[1][0] = src[1]; 
+	dest[0][1] = src[2]; 
+	dest[1][1] = src[3]; 
+} 

@@ -27,14 +27,22 @@
 #define _GLMC_H
 
 #include <stdio.h>
+#include <stdint.h>
+#include <stdio.h>
 
-// types:
+// Types:
+
+//For 1D conversions:
+
+typedef float 1D_to_2f[4]; 
+typedef float 1D_to_3f[9]; 
+typedef float 1D_to_4f[16]; 
 
 //Vector:
 
-typedef float vec4f[4];
-typedef float vec3f[3];
 typedef float vec2f[2];
+typedef float vec3f[3];
+typedef float vec4f[4];
 
 //Matrix:
 
@@ -138,25 +146,25 @@ void glmc_vec2f_normlize(vec2f dest, vec2f src);
 void glmc_vec3f_normlize_dest(vect2f src_dest);
 
 
-void glmc_vec2f_add(vec2f dest, vec2f src_a, vec2f src_b); // dest = src_a + src_b;
-void glmc_vec2f_add_dest(vec2f src_dest, vec2f src_b); // dest += src_a;
+void glmc_vec2f_add(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_add_dest(vec2f src_dest, vec2f src_b); 
 
-void glmc_vec2f_sub(vec2f dest, vec2f src_a, vec2f src_b); // dest = src_a - src_b;
-void glmc_vec2f_sub_dest(vec2f src_dest, vec2f src_b); // dest -= src_a;
+void glmc_vec2f_sub(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_sub_dest(vec2f src_dest, vec2f src_b); 
 
-void glmc_vec2f_mul(vec2f dest, vec2f src_a, vec2f src_b); // dest = src_a * src_b;
-void glmc_vec2f_mul_dest(vec2f src_dest, vec2f src_b); // dest *= src_a;
-void glmc_vec2f_mul_s(vec2f dest, vec2f src_a, float src_b); // dest = src_a * scalar
+void glmc_vec2f_mul(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_mul_dest(vec2f src_dest, vec2f src_b); 
+void glmc_vec2f_mul_s(vec2f dest, vec2f src_a, float src_b); 
 
-void glmc_vec2f_div(vec2f dest, vec2f src_a, vec2f src_b); // dest = src_a / src_b;
-void glmc_vec2f_div_dest(vec2f src_dest, vec2f src_b); // dest /= src_a;
-void glmc_vec2f_div_s(vec2f dest, vec2f src_a, float src_b); // dest = src_a / scalar
+void glmc_vec2f_div(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_div_dest(vec2f src_dest, vec2f src_b); 
+void glmc_vec2f_div_s(vec2f dest, vec2f src_a, float src_b); 
 
-void glmc_vec2f_addadd(vec2f dest, vec2f src_a, vec2f src_b); // dest += src_a + src_b;
-void glmc_vec2f_subadd(vec2f dest, vec2f src_a, vec2f src_b); // dest += src_a - src_b;
+void glmc_vec2f_addadd(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_subadd(vec2f dest, vec2f src_a, vec2f src_b); 
 
-void glmc_vec2f_madd(vec2f dest, vec2f src_a, vec2f src_b); // dest += src_a * src_b;
-void glmc_vec2f_msub(vec2f dest, vec2f src_a, vec2f src_b); // dest -= src_a * src_b;
+void glmc_vec2f_madd(vec2f dest, vec2f src_a, vec2f src_b); 
+void glmc_vec2f_msub(vec2f dest, vec2f src_a, vec2f src_b); 
 
 float glmc_vec2f_dot(vec2f src_a, vec2f src_b);
 
@@ -164,10 +172,10 @@ float glmc_vec2f_dot(vec2f src_a, vec2f src_b);
 //matrix2f
 
 
-void glmc_mat2f_identity(mat2f dest); 
-void glmc_mat2f_scale(mat2f dest, float src_sx); 
-void glmc_mat2f_translation(mat2f dest, float src_t1); 
-void glmc_mat2f_rotation(mat2f dest, float theta); 
+void glmc_matrix2f_identity(matrix2f dest); 
+void glmc_matrix2f_scale(matrix2f dest, float src_sx); 
+void glmc_matrix2f_translation(matrix2f dest, float src_t1); 
+void glmc_matrix2f_rotation(matrix2f dest, float theta); 
 void glmc_matrix2f_transpose(matrix2f dest, matrix2f src);
 void glmc_matrix2f_transpose_dest(matrix2f src_dest);
 
@@ -198,12 +206,16 @@ void glmc_matrix2f_subadd(matrix2f dest, matrix2f src_a, matrix2f src_b);
 void glmc_matrix2f_madd(matrix2f dest, matrix2f src_a, matrix2f src_b);
 void glmc_matrix2f_msub(matrix2f dest, matrix2f src_a, matrix2f src_b);
 
+void glmc_matrix2f_default_normalize(matrix2f dest); 
+void glmc_convert_2f_to_1D(1D_to_2f dest, matrix2f src); 
+void glmc_convert_1D_to_2f(matrix2f dest, 1D_to_2f src); 
+
 //matrix3f
 
-void glmc_mat3f_identity(mat3f dest); 
-void glmc_mat3f_scale(mat3f dest, float src_sx, float src_sy); 
-void glmc_mat3f_translation(mat3f dest, float src_t1, float src_t2); 
-void glmc_mat3f_rotation(mat3f dest, float src_ux, float src_uy, float src_uz, float theta); 
+void glmc_matrix3f_identity(matrix3f dest); 
+void glmc_matrix3f_scale(matrix3f dest, float src_sx, float src_sy); 
+void glmc_matrix3f_translation(matrix3f dest, float src_t1, float src_t2); 
+void glmc_matrix3f_rotation(matrix3f dest, float src_ux, float src_uy, float src_uz, float theta); 
 
 void glmc_matrix3f_transpose(matrix3f dest, matrix3f src);
 void glmc_matrix3f_transpose_dest(matrix3f src_dest);
@@ -234,6 +246,10 @@ void glmc_matrix3f_subadd(matrix3f dest, matrix3f src_a, matrix3f src_b);
 
 void glmc_matrix3f_madd(matrix3f dest, matrix3f src_a, matrix3f src_b);
 void glmc_matrix3f_msub(matrix3f dest, matrix3f src_a, matrix3f src_b);
+
+void glmc_matrix3f_default_normalize(matrix3f dest); 
+void glmc_convert_3f_to_1D(1D_to_3f dest, matrix3f src); 
+void glmc_convert_1D_to_3f(matrix3f dest, 1D_to_3f src); 
 
 //matrix4f
 
@@ -274,6 +290,10 @@ void glmc_matrix4f_msub(matrix4f dest, matrix4f src_a, matrix4f src_b);
 
 void glmc_matrix4f_perspective_projection(matrix4f dest, float src_fovy, float src_aspect, float src_zNear, float src_zFar);
 void glmc_matrix4f_ortho_projection(matrix4f dest, float src_left, float src_right, float src_bottom, float src_top);
+
+void glmc_matrix4f_default_normalize(matrix4f dest); 
+void glmc_convert_4f_to_1D(1D_to_4f dest, matrix4f src); 
+void glmc_convert_1D_to_4f(matrix4f dest, 1D_to_4f src); 
 
 //matrix_vector
 
