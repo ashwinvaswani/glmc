@@ -196,14 +196,14 @@ inline void glmc_matrix2f_default_normalize(matrix2f dest) {
 	#endif 
 } 
 
-inline void glmc_convert_2f_to_1D(1D_to_2f dest, matrix2f src) { 
+inline void glmc_convert_2f_to_oneD(oneD_to_2f dest, matrix2f src) { 
 	dest[0] = src[0][0]; 
 	dest[1] = src[1][0]; 
 	dest[2] = src[0][1]; 
 	dest[3] = src[1][1]; 
 } 
 
-inline void glmc_convert_1D_to_2f(matrix2f dest, 1D_to_2f src) { 
+inline void glmc_convert_oneD_to_2f(matrix2f dest, oneD_to_2f src) { 
 	dest[0][0] = src[0]; 
 	dest[1][0] = src[1]; 
 	dest[0][1] = src[2]; 

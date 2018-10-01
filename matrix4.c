@@ -517,7 +517,7 @@ inline void glmc_matrix4f_default_normalize(matrix4f dest) {
 } 
 
  
-inline void glmc_convert_4f_to_1D(1D_to_4f dest, matrix4f src) { 
+inline void glmc_convert_4f_to_oneD(oneD_to_4f dest, matrix4f src) { 
 	dest[0] = src[0][0]; 
 	dest[1] = src[1][0]; 
 	dest[2] = src[2][0]; 
@@ -536,7 +536,7 @@ inline void glmc_convert_4f_to_1D(1D_to_4f dest, matrix4f src) {
 	dest[15] = src[3][3]; 
 } 
 
-inline void glmc_convert_1D_to_4f(matrix4f dest, 1D_to_4f src) { 
+inline void glmc_convert_oneD_to_4f(matrix4f dest, oneD_to_4f src) { 
 	dest[0][0] = src[0]; 
 	dest[1][0] = src[1]; 
 	dest[2][0] = src[2]; 

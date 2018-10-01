@@ -34,11 +34,11 @@
 
 //For 1D conversions:
 
-typedef float 1D_to_2f[4]; 
-typedef float 1D_to_3f[9]; 
-typedef float 1D_to_4f[16]; 
+typedef float oneD_to_2f[4]; 
+typedef float oneD_to_3f[9]; 
+typedef float oneD_to_4f[16]; 
 
-//Vector:
+//vecor:
 
 typedef float vec2f[2];
 typedef float vec3f[3];
@@ -62,7 +62,7 @@ float glmc_vec3f_length(vec3f vec);
 
 int  glmc_vec3f_is_normalized(vec3f src);
 void glmc_vec3f_normlize(vec3f dest, vec3f src);
-void glmc_vec3f_normlize_dest(vect3f src_dest);
+void glmc_vec3f_normlize_dest(vec3f src_dest);
 
 void glmc_vec3f_add(vec3f dest, vec3f src_a, vec3f src_b); // dest = src_a + src_b;
 void glmc_vec3f_add_dest(vec3f src_dest, vec3f src_b); // dest += src_a;
@@ -90,7 +90,7 @@ void  glmc_vec3f_cross(vec3f dest, vec3f src_a, vec3f src_b);
 void glmc_vec3f_reflection(vec3f dest, vec3f src, vec3f normal); 
 void glmc_vec3f_refraction(vec3f dest, vec3f src, vec3f normal, float src_mu); 
 
-void glmc_vec3f_rotate(vec3f src_a,vect3f src_b,vect3f dest);
+void glmc_vec3f_rotate(vec3f src_a,vec3f src_b,vec3f dest);
 
 
 // vec4f
@@ -105,7 +105,7 @@ float glmc_vec4f_length(vec4f vec);
 
 int  glmc_vec4f_is_normalized(vec4f src);
 void glmc_vec4f_normlize(vec4f dest, vec4f src);
-void glmc_vec4f_normlize_dest(vect4f src_dest);
+void glmc_vec4f_normlize_dest(vec4f src_dest);
 
 
 void glmc_vec4f_add(vec4f dest, vec4f src_a, vec4f src_b); // dest = src_a + src_b;
@@ -129,7 +129,7 @@ void glmc_vec4f_madd(vec4f dest, vec4f src_a, vec4f src_b); // dest += src_a * s
 void glmc_vec4f_msub(vec4f dest, vec4f src_a, vec4f src_b); // dest -= src_a * src_b;
 
 float glmc_vec4f_dot(vec4f src_a, vec4f src_b);
-void glmc_vec4f_rotate(vec4f src_a,vect4f src_b,vect4f dest);
+void glmc_vec4f_rotate(vec4f src_a,vec4f src_b,vec4f dest);
 
 // vec2f
 
@@ -143,7 +143,7 @@ float glmc_vec2f_length(vec2f vec);
 
 int  glmc_vec2f_is_normalized(vec2f src);
 void glmc_vec2f_normlize(vec2f dest, vec2f src);
-void glmc_vec3f_normlize_dest(vect2f src_dest);
+void glmc_vec3f_normlize_dest(vec2f src_dest);
 
 
 void glmc_vec2f_add(vec2f dest, vec2f src_a, vec2f src_b); 
@@ -207,8 +207,8 @@ void glmc_matrix2f_madd(matrix2f dest, matrix2f src_a, matrix2f src_b);
 void glmc_matrix2f_msub(matrix2f dest, matrix2f src_a, matrix2f src_b);
 
 void glmc_matrix2f_default_normalize(matrix2f dest); 
-void glmc_convert_2f_to_1D(1D_to_2f dest, matrix2f src); 
-void glmc_convert_1D_to_2f(matrix2f dest, 1D_to_2f src); 
+void glmc_convert_2f_to_1D(oneD_to_2f dest, matrix2f src); 
+void glmc_convert_oneD_to_2f(matrix2f dest, oneD_to_2f src); 
 
 //matrix3f
 
@@ -248,8 +248,8 @@ void glmc_matrix3f_madd(matrix3f dest, matrix3f src_a, matrix3f src_b);
 void glmc_matrix3f_msub(matrix3f dest, matrix3f src_a, matrix3f src_b);
 
 void glmc_matrix3f_default_normalize(matrix3f dest); 
-void glmc_convert_3f_to_1D(1D_to_3f dest, matrix3f src); 
-void glmc_convert_1D_to_3f(matrix3f dest, 1D_to_3f src); 
+void glmc_convert_3f_to_1D(oneD_to_3f dest, matrix3f src); 
+void glmc_convert_oneD_to_3f(matrix3f dest, oneD_to_3f src); 
 
 //matrix4f
 
@@ -292,10 +292,10 @@ void glmc_matrix4f_perspective_projection(matrix4f dest, float src_fovy, float s
 void glmc_matrix4f_ortho_projection(matrix4f dest, float src_left, float src_right, float src_bottom, float src_top);
 
 void glmc_matrix4f_default_normalize(matrix4f dest); 
-void glmc_convert_4f_to_1D(1D_to_4f dest, matrix4f src); 
-void glmc_convert_1D_to_4f(matrix4f dest, 1D_to_4f src); 
+void glmc_convert_4f_to_1D(oneD_to_4f dest, matrix4f src); 
+void glmc_convert_oneD_to_4f(matrix4f dest, oneD_to_4f src); 
 
-//matrix_vector
+//matrix_vecor
 
 void glmc_matrix2f_mul_vec2f(vec2f dest, matrix2f mat, vec2f vec);
 void glmc_matrix3f_mul_vec3f(vec3f dest, matrix3f mat, vec3f vec);

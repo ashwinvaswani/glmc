@@ -313,7 +313,7 @@ inline void glmc_matrix3f_default_normalize(matrix3f dest) {
 		glmc_matrix3f_normlize_dest(dest); 
 	#endif 
 
-inline void glmc_convert_3f_to_1D(1D_to_3f dest, matrix3f src) { 
+inline void glmc_convert_3f_to_oneD(oneD_to_3f dest, matrix3f src) { 
 	dest[0] = src[0][0]; 
 	dest[1] = src[1][0]; 
 	dest[2] = src[2][0]; 
@@ -325,7 +325,7 @@ inline void glmc_convert_3f_to_1D(1D_to_3f dest, matrix3f src) {
 	dest[8] = src[2][2]; 
 } 
 
-inline void glmc_convert_1D_to_3f(matrix3f dest, 1D_to_3f src) { 
+inline void glmc_convert_oneD_to_3f(matrix3f dest, oneD_to_3f src) { 
 	dest[0][0] = src[0]; 
 	dest[1][0] = src[1]; 
 	dest[2][0] = src[2]; 
