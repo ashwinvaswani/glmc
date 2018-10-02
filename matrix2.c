@@ -186,11 +186,11 @@ inline void glmc_matrix2f_msub(matrix2f dest, matrix2f src_a, matrix2f src_b){
 }
 
 inline void glmc_matrix2f_default_normalize(matrix2f dest) { 
-	for(int i=0;i<2;i++){
-		for(int j=0;j<2;j++){
-			scanf("%f",&dest[i][j]);
-		}
-	}
+	scanf("%f",&dest[0][0]);
+	scanf("%f",&dest[0][1]);
+	scanf("%f",&dest[1][0]);
+	scanf("%f",&dest[1][1]);
+	
 	#ifdef NORMALISE  
 		glmc_matrix2f_normlize_dest(dest); 
 	#endif 

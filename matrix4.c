@@ -506,11 +506,23 @@ inline void glmc_matrix4f_ortho_proj(matrix4f dest, float src_left, float src_ri
 }
 
 inline void glmc_matrix4f_default_normalize(matrix4f dest) { 
-	for(int i=0;i<4;i++){
-		for(int j=0;j<4;j++){
-			scanf("%f",&dest[i][j]);
-		}
-	}
+	scanf("%f",&dest[0][0]);
+	scanf("%f",&dest[0][1]);
+	scanf("%f",&dest[0][2]);
+	scanf("%f",&dest[0][3]);
+	scanf("%f",&dest[1][0]);
+	scanf("%f",&dest[1][1]);
+	scanf("%f",&dest[1][2]);
+	scanf("%f",&dest[1][3]);
+	scanf("%f",&dest[2][0]);
+	scanf("%f",&dest[2][1]);
+	scanf("%f",&dest[2][2]);
+	scanf("%f",&dest[2][3]);
+	scanf("%f",&dest[3][0]);
+	scanf("%f",&dest[3][1]);
+	scanf("%f",&dest[3][2]);
+	scanf("%f",&dest[3][3]);
+
 	#ifdef NORMALISE  
 		glmc_matrix4f_normlize_dest(dest); 
 	#endif  

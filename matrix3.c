@@ -304,11 +304,16 @@ inline void glmc_matrix3f_msub(matrix3f dest, matrix3f src_a, matrix3f src_b){
 }
 
 inline void glmc_matrix3f_default_normalize(matrix3f dest) { 
-	for(int i=0;i<3;i++){
-		for(int j=0;j<3;j++){
-			scanf("%f",&dest[i][j]);
-		}
-	}
+	scanf("%f",&dest[0][0]);
+	scanf("%f",&dest[0][1]);
+	scanf("%f",&dest[0][2]);
+	scanf("%f",&dest[1][0]);
+	scanf("%f",&dest[1][1]);
+	scanf("%f",&dest[1][2]);
+	scanf("%f",&dest[2][0]);
+	scanf("%f",&dest[2][1]);
+	scanf("%f",&dest[2][2]);
+
 	#ifdef NORMALISE  
 		glmc_matrix3f_normlize_dest(dest); 
 	#endif 
